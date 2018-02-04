@@ -6,7 +6,9 @@ import data from './data';
 class App extends Component {
   constructor(props){
     super(props);
+    this.data = this.props.data;
   }
+  createHeader(
   render() {
     console.log('data: ',data);
     return (
