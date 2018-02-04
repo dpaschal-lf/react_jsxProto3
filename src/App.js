@@ -11,7 +11,35 @@ class App extends Component {
     console.log('data: ',data);
     return (
       <div className="App">
-
+        <header>
+          <h1 className="title">Super Blog!</h1>
+          <aside className="userProfile">
+            <figure className="avatar">
+              <figcaption className="name"></figcaption>
+            </figure>
+            <div className="quote">Stuff</div>
+          </aside>
+        </header>
+        <aside id="friendList">
+          <aside className="userProfile">
+            <figure className="avatar">
+              <figcaption className="name"></figcaption>
+            </figure>
+          </aside>
+          <aside className="userProfile">
+            <figure className="avatar">
+              <figcaption className="name"></figcaption>
+            </figure>
+          </aside>        
+        </aside>
+        <main>
+          <div id="topPosts">
+            <div className="post">
+              <h5>Title</h5>
+              <content>Content</content>
+            </div>
+          </div>
+        </main>
       </div>
     );
   }
