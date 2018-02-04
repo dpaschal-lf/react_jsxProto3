@@ -16,15 +16,18 @@ const data = {
 		friendsList: [
 			{
 				name: 'Jacky',
-				avatar: jacky
+				avatar: jacky,
+				status: 'online'
 			}, 
 			{
 				name: 'Sam',
-				avatar: sam
+				avatar: sam,
+				status: 'offline'
 			},
 			{
 				name: 'Daniel',
-				avatar: daniel
+				avatar: daniel,
+				status: 'online'
 			}
 		]
 	},

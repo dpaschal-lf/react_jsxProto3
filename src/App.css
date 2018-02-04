@@ -1,0 +1,103 @@
+html{
+  font-size: 3vmin;
+}
+body{
+  margin: 0;
+}
+.topHeader{
+  height: 20vh;
+  background-color: lavender;
+  position: relative;
+}
+.topHeader > .userProfile{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  font-size: 80%;
+}
+.userProfile .name{
+  position: absolute;
+  color: white;
+  text-shadow: black 1px 1px 2px;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+.quote{
+  text-align: center;
+  font-size: 50%;
+}
+.avatar{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+}
+.quote + .avatar{
+  height: 80%;
+}
+.post{
+  position: relative;
+  padding: 2vmin;
+}
+.post::before{
+  content: ' ';
+  position: absolute;
+  top: 0;
+  width: 80%;
+  left: 10%;
+  border-top: 1px solid black;
+}
+.postTitle{
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+.post > article{
+  text-align: justify;
+}
+
+#friendList{
+  position: fixed;
+  left: 100%;
+  width: 25%;
+  height: 15vh;
+  transform: translateX(0%);
+  transition-duration: .5s;
+  background-color: rgba(175,175,175,.7);
+  z-index: 1;
+}
+#friendList > .userProfile{
+  height: 33%;
+  font-size: 80%;
+}
+#friendList .avatar{
+  background-position: 50% 30%;
+}
+#friendList > .friendTab{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: white;
+  text-shadow: black 1px 1px 2px;
+  width: 20%;
+  transform: translate(-50%, -100%);
+
+}
+.friendList-online{
+  padding: .5vmin;
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 30%;
+}
+#friendList:hover{
+  transform: translateX(-100%);
+  transition-duration: .75s;
+}
+
+
