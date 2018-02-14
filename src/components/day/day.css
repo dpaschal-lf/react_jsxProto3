@@ -1,0 +1,8 @@
+.date{
+	width: 14.28%;
+	box-sizing: border-box;
+	border: 1px solid black;
+	display: inline-block;
+	height: 20%;
+	vertical-align: top;
+}

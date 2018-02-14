@@ -1,0 +1,19 @@
+.monthContainer{
+	height: 100%;
+}
+.month{
+	font-size: 0;
+	height: 100%;
+	width: 90%;
+	float: left;
+}
+.month > *{
+	font-size: 1rem;
+}
+a.monthNav {
+    height: 100%;
+    display: inline-block;
+    width: 5%;
+    word-wrap: break-word;
+    float: left;
+}
