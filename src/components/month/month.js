@@ -9,9 +9,9 @@ class Month extends Component{
 	    const today = new Date();
 	    if(this.params){
 		    this.state = {
-		      currentYear: parseInt(this.params.match.year),
-		      currentMonth: parseInt(this.params.match.month),
-		      currentDay: parseInt(this.params.match.day)
+		      currentYear: parseInt(this.props.match.params.year),
+		      currentMonth: parseInt(this.props.match.params.month),
+		      currentDay: parseInt(this.props.match.params.day)
 		    }	    	
 	    } else {
 		    this.state = {
