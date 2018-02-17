@@ -7,11 +7,12 @@ class Month extends Component{
 	constructor(props){
 		super(props);
 	    const today = new Date();
-	    if(this.params){
+	    this.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+	    if(this.props.match.params.year){
 		    this.state = {
-		      currentYear: parseInt(this.props.match.params.year),
-		      currentMonth: parseInt(this.props.match.params.month),
-		      currentDay: parseInt(this.props.match.params.day)
+		      currentYear: parseInt(this.props.match.params.year,10),
+		      currentMonth: parseInt(this.props.match.params.month,10),
+		      currentDay: parseInt(this.props.match.params.day,10)
 		    }	    	
 	    } else {
 		    this.state = {
@@ -36,15 +37,15 @@ class Month extends Component{
 		return date;
 	}
 	getLastDate(month, year){
-		const testDate = this.date();
+		let testDate = this.date();
 		testDate.setMonth(month);
 		if(year){
 			testDate.setYear(year);
 		}
-		for(let date=28; date<=32; date++){
+		for(let date=28; date<33; date++){
 			testDate.setDate(date);
 			if(testDate.getDate()===1){
-				return date;
+				return date-2;
 			}
 		}
 	}
@@ -58,7 +59,6 @@ class Month extends Component{
 		console.log(this.history);
 		let newMonth;
 		let newYear;
-		//debugger;
 		if(this.props.match.params.year){
 			newMonth = parseInt(this.props.match.params.month);
 			newYear = parseInt(this.props.match.params.year);			
@@ -79,15 +79,16 @@ class Month extends Component{
 		return '/'+newYear + '/' + newMonth + '/' + this.state.currentDay;
 	}
 	getDatesForMonth(month){
-		const startingDay = this.getDayOfWeek(month,0);
+		const startingDay = this.getDayOfWeek(month,1);
 		const allDays = [];
 		let key = 0;
-		while(allDays.length<=startingDay){
+		while(allDays.length<startingDay){
 			allDays.push(<Day key={key++}/>);
 		}
 		const lastDate = this.getLastDate(month);
+		console.log('last date: '+lastDate);
 		for(let date=0; date<=lastDate; date++){
-			allDays.push(<Day key={key++} date={date} clickCallback={this.handleClick}/>);
+			allDays.push(<Day model={this.props.model} key={key++} fullDate={{year:this.state.currentYear, month: this.state.currentMonth, date: date}} date={date} clickCallback={this.handleClick}/>);
 		}
 		while(allDays.length<35){
 			allDays.push(<Day key={key++}/>);
@@ -95,11 +96,15 @@ class Month extends Component{
 		return allDays;
 	}
 	render(){
+
 		return(
 		<div className="monthContainer">
 			<Link className="monthNav" to={this.getNextMonthYear(-1)}>&lt;&lt;&lt;</Link>
-			<div className="month">
-				{this.getDatesForMonth(this.state.currentMonth)}
+			<div className="monthCenter">
+				<div className="monthTitle">{this.months[this.state.currentMonth]}</div>
+				<div className="month">
+					{this.getDatesForMonth(this.state.currentMonth)}
+				</div>
 			</div>
 			<Link className="monthNav" to={this.getNextMonthYear(1)}>&gt;&gt;&gt;</Link>
 		</div>

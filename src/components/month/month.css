@@ -3,8 +3,8 @@
 }
 .month{
 	font-size: 0;
-	height: 100%;
-	width: 90%;
+	height: 90%;
+	width: 100%;
 	float: left;
 }
 .month > *{
@@ -16,4 +16,17 @@ a.monthNav {
     width: 5%;
     word-wrap: break-word;
     float: left;
+}
+.monthCenter{
+	width: 90%;
+	height: 90%;
+	float: left;
+}
+.monthTitle{
+	width: 90%;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+	height: 10%;
+	float: left;
 }
